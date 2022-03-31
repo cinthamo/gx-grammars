@@ -12,7 +12,7 @@ flagDefinition:
   ddoc=doc* name=NAME COLON ttype=NAME (open=CORCHA fRule* CORCHC)? end?;
 
 fRule:
-  name=NAME (EQUAL value=STRING)? end?;
+  name=NAME (EQUAL value=STRING_DOUBLE)? end?;
 
 type:
   TYPE nameExtends open=CORCHA property* CORCHC;
