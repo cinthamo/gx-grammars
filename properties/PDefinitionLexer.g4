@@ -9,6 +9,7 @@ IMPORT: 'import';
 FLAGS: 'flags';
 TYPE: 'type';
 EXTENDS: 'extends';
+WHEN: 'when';
 IF: 'if';
 
 MULT: [*/];

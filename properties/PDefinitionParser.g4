@@ -18,8 +18,8 @@ type:
   TYPE nameExtends open=CORCHA property* CORCHC;
 
 nameExtends:
-  name=NAME (EXTENDS ttype=NAME)?  # nameNormal
-| EXTENDS etype=NAME               # nameExternal
+  name=NAME (EXTENDS ttype=NAME)?            # nameNormal
+| EXTENDS etype=NAME (WHEN condition=expr)?  # nameExternal
 ;
 
 property:
@@ -31,6 +31,7 @@ propName:
 | FLAGS
 | TYPE
 | EXTENDS
+| WHEN
 | STRING_SINGLE
 ;
 
@@ -76,6 +77,7 @@ expr:
 | left=expr op=MULT right=expr  # exprOperator
 | left=expr op=ADD right=expr   # exprOperator
 | left=expr op=COMP right=expr  # exprOperator
+| left=expr op=EQUAL right=expr # exprOperator
 | left=expr op=AND right=expr   # exprOperator
 | left=expr op=OR right=expr    # exprOperator
 | NOT expr                      # exprNot
