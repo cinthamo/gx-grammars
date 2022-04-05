@@ -9,4 +9,5 @@ TRANSFORM: 'transform';
 FROM: 'from';
 TO: 'to';
 FOR: 'for';
+IF: 'if';
 ARROW: '->';

@@ -6,14 +6,21 @@ conversions: importt* conversion* rewrite* transform*;
 
 importt: IMPORT name=NAME;
 
-conversion: CONVERT namefromto CORCHA crule* CORCHC;
+conversion: CONVERT namefromto object;
 
 namefromto:
-  name=NAME FROM from=NAME TO to=NAME
-| name=NAME FOR for=NAME
+  (name=NAME)? FROM from=typename TO to=typename
+| (name=NAME)? FOR for=typename
 ;
 
-crule: name=NAME EQUAL expr;
+typename:
+  type=NAME                # nameSimple
+| pdef=NAME DOT type=NAME  # nameQualified
+;
+
+object: CORCHA crule* CORCHC;
+
+crule: name=NAME COLON value=exprvalue (IF condition=expr)?;
 
 propName:
   NAME
@@ -25,6 +32,14 @@ propName:
 | FOR
 | STRING_SINGLE
 ;
+
+exprvalue:
+  expr     # valueExpr
+| object   # valueObject
+| list     # valueList
+;
+
+list: BRACKA (exprvalue (COMMA? exprvalue)*)? BRACKC;
 
 rewrite: REWRITE namefromto CORCHA rrule* CORCHC;
 
