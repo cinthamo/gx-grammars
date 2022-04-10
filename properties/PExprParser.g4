@@ -7,7 +7,7 @@ expr:
 | NULL                          # exprNull
 | VALUE                         # exprValue
 | name=anyName                  # exprName
-| target=expr DOT prop=NAME     # exprProp
+| target=expr DOT prop=anyName  # exprProp
 | func                          # exprFunction
 | target=expr DOT func          # exprMethod
 | left=expr op=MULT right=expr  # exprOperator
