@@ -20,7 +20,7 @@ typename:
 
 object: CORCHA crule* CORCHC;
 
-crule: name=NAME COLON value=func (IF condition=expr)?;
+crule: name=NAME COLON value=exprvalue (IF condition=expr)?;
 
 anyName:
   NAME
