@@ -6,7 +6,7 @@ expr:
 | value=STRING_DOUBLE           # exprString
 | NULL                          # exprNull
 | VALUE                         # exprValue
-| name=propName                 # exprName
+| name=anyName                  # exprName
 | target=expr DOT prop=NAME     # exprProp
 | func                          # exprFunction
 | target=expr DOT func          # exprMethod
@@ -20,4 +20,4 @@ expr:
 | PARA expr PARC                # exprParenthesis
 ;
 
-func: name=NAME PARA (expr (COMMA expr)*)? PARC;
+func: name=anyName PARA (expr (COMMA expr)*)? PARC;

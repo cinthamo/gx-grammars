@@ -23,9 +23,9 @@ nameExtends:
 ;
 
 property:
-  ddoc=doc* name=idPropName COLON ttype=NAME (open=CORCHA aRule* CORCHC)? end?;
+  ddoc=doc* name=anyIdName COLON ttype=NAME (open=CORCHA aRule* CORCHC)? end?;
 
-propName:
+anyName:
   NAME
 | IMPORT
 | FLAGS
@@ -35,8 +35,8 @@ propName:
 | STRING_SINGLE
 ;
 
-idPropName:
-  propName
+anyIdName:
+  anyName
 | BOOL
 | NOT
 | NULL
